@@ -1,6 +1,8 @@
 """
-Pytest hooks and fixtures. Driver for automated_tests.
+Pytest hooks and fixtures. Driver for tests.
 """
+import time
+
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -21,4 +23,5 @@ def driver():
     browser.set_page_load_timeout(PAGE_LOAD_TIMEOUT)
     browser.get(BASE_URL)
     yield browser
+    time.sleep(2)  # Short pause to see result before closing (can be removed)
     browser.quit()

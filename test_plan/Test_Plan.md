@@ -35,4 +35,4 @@
 - **Locators:** All selectors in `locators/locators.json` (by + value).
 - **Actions:** Single place for UI methods in `core/base_actions.py`; used project-wide.
 - **Pages:** Page objects use only `self.actions` with section/key; no raw Selenium in pages.
-- **Tests:** `automated_tests/` only call page methods.
+- **Tests:** `tests/` only call page methods (test_pa_*).

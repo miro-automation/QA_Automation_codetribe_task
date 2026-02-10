@@ -15,9 +15,10 @@ def test_pa_search_box_visible(driver):
 
 
 def test_pa_search_product_key_word(driver):
-    """Search by Build (static data) and verify all results contain the keyword."""
+    """Search by Build (static data), verify results contain keyword, write product names to list file."""
     home = HomePage(driver)
     home.search_build()
 
     results = SearchResultsPage(driver)
     results.verify_products_contain_build()
+    results.write_product_names_list()

@@ -1,4 +1,6 @@
 """Search results page. Verification of product-grid and item-box structure."""
+from pathlib import Path
+
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.remote.webelement import WebElement
@@ -8,6 +10,9 @@ from selenium.webdriver.support import expected_conditions as EC
 from config.data_loader import get_value
 from config.settings import IMPLICIT_WAIT
 from pages.base_page import BasePage
+
+# Output folder for generated lists (e.g. product names)
+OUTPUT_DIR = Path(__file__).resolve().parent.parent / "output"
 
 
 class SearchResultsPage(BasePage):
@@ -61,3 +66,30 @@ class SearchResultsPage(BasePage):
                 raise AssertionError(
                     f"Keyword '{keyword}' not found in product (item-box[{idx}]): '{h2_a.text}'"
                 )
+
+    def get_product_names_from_results(self) -> list[str]:
+        """
+        Get all product names from search results.
+        Structure: .search-results .product-grid .item-box .product-item .details h2 a (text).
+        """
+        WebDriverWait(self.driver, IMPLICIT_WAIT).until(
+            EC.presence_of_element_located(
+                (By.CSS_SELECTOR, "div.search-results div.product-grid div.item-box .product-item .details h2 a")
+            )
+        )
+        links = self.driver.find_elements(
+            By.CSS_SELECTOR,
+            "div.search-results div.product-grid div.item-box .product-item .details h2 a",
+        )
+        return [el.text.strip() for el in links if el.text]
+
+    def write_product_names_list(self, filename: str = "test_pa_search_product_key_word_list.txt") -> Path:
+        """
+        Get product names from current results and write them to output/<filename>.
+        Returns the path to the created file.
+        """
+        OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+        filepath = OUTPUT_DIR / filename
+        names = self.get_product_names_from_results()
+        filepath.write_text("\n".join(names), encoding="utf-8")
+        return filepath

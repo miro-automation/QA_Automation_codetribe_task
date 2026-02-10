@@ -1,0 +1,54 @@
+{
+  "home_page": {
+    "search_input": {
+      "by": "id",
+      "value": "small-searchterms"
+    },
+    "search_button": {
+      "by": "css",
+      "value": "input[value='Search']"
+    }
+  },
+  "search_results": {
+    "result_products": {
+      "by": "css",
+      "value": ".product-item"
+    },
+    "product_title_link": {
+      "by": "css",
+      "value": ".product-item h2 a"
+    },
+    "product_price": {
+      "by": "css",
+      "value": ".product-item .prices span"
+    }
+  },
+  "product_details": {
+    "product_title": {
+      "by": "css",
+      "value": ".product-name h1"
+    },
+    "product_price": {
+      "by": "css",
+      "value": ".product-price"
+    },
+    "add_to_cart_button": {
+      "by": "css",
+      "value": "input[value='Add to cart']"
+    }
+  },
+  "category": {
+    "apparel_and_shoes_link": {
+      "by": "css",
+      "value": "a[href*='apparel-shoes']"
+    },
+    "pagination_next": {
+      "by": "css",
+      "value": ".pager .next-page a"
+    },
+    "sort_dropdown": {
+      "by": "id",
+      "value": "products-orderby"
+    }
+  }
+}

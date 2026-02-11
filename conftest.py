@@ -48,6 +48,7 @@ def pytest_configure(config):
     config.addinivalue_line("markers", "category_verification: category and product grid verification.")
     config.addinivalue_line("markers", "pagination: pagination flow tests.")
     config.addinivalue_line("markers", "sorting: sort options on category page.")
+    config.addinivalue_line("markers", "register: user registration form tests.")
 
 
 @pytest.fixture(scope="function")

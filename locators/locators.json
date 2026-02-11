@@ -23,5 +23,20 @@
     "page_2_link": {"by": "css", "value": "div.pager li.individual-page a[href*='pagenumber=2']"},
     "page_1_link": {"by": "css", "value": "div.pager li.individual-page a[href='/apparel-shoes']"},
     "sort_dropdown": {"by": "id", "value": "products-orderby"}
+  },
+  "register": {
+    "first_name": {"by": "id", "value": "FirstName"},
+    "last_name": {"by": "id", "value": "LastName"},
+    "email": {"by": "id", "value": "Email"},
+    "password": {"by": "id", "value": "Password"},
+    "confirm_password": {"by": "id", "value": "ConfirmPassword"},
+    "register_button": {"by": "id", "value": "register-button"},
+    "gender_male": {"by": "css", "value": "input[name='Gender'][value='M']"},
+    "gender_female": {"by": "css", "value": "input[name='Gender'][value='F']"},
+    "validation_first_name": {"by": "css", "value": "span[data-valmsg-for='FirstName']"},
+    "validation_last_name": {"by": "css", "value": "span[data-valmsg-for='LastName']"},
+    "validation_email": {"by": "css", "value": "span[data-valmsg-for='Email']"},
+    "validation_password": {"by": "css", "value": "span[data-valmsg-for='Password']"},
+    "validation_confirm_password": {"by": "css", "value": "span[data-valmsg-for='ConfirmPassword']"}
   }
 }

@@ -1,0 +1,12 @@
+{
+  "valid": {
+    "first_name": "Ana",
+    "last_name": "Kovac",
+    "email": "ana.kovac.demoweb@example.com",
+    "password": "SecurePass99!"
+  },
+  "invalid_email": "notanemail",
+  "password_mismatch_confirm": "DifferentPass123!",
+  "empty_spaces": "   ",
+  "forbidden_chars_name": "<script>alert(1)</script>"
+}

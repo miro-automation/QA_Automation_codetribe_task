@@ -12,7 +12,12 @@ pytestmark = [pytest.mark.order(1)]
 @pytest.mark.ui
 @pytest.mark.register
 def test_register_password_mismatch(driver):
-    """Fill valid data but different confirm password; assert password do not match."""
+    """Steps:
+    1. Open register page; select gender; fill valid first name, last name, email, password.
+    2. Fill Confirm password with a different value.
+    3. Click Register.
+    4. Assert validation message: password and confirmation do not match.
+    """
     assert driver is not None, "Driver fixture should be available."
     data = load_register_data()
     valid = data["valid"]

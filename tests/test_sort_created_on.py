@@ -12,7 +12,11 @@ pytestmark = [pytest.mark.order(3)]
 @pytest.mark.ui
 @pytest.mark.sorting
 def test_sort_created_on(driver):
-    """Open Apparel & Shoes, select Created on, verify URL and products on page 1 and page 2."""
+    """Steps:
+    1. Open Apparel & Shoes; select sort 'Created on'.
+    2. Assert sort is applied (URL/product list) and products displayed on page 1.
+    3. Go to page 2; assert products displayed and sort applied on page 2.
+    """
     assert driver is not None, "Driver fixture should be available."
     category = CategoryPage(driver)
     category.open_apparel_shoes()

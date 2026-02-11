@@ -15,7 +15,10 @@ pytestmark = [pytest.mark.order(3)]
 @pytest.mark.search
 @pytest.mark.product_validation
 def test_validate_product_name_and_price(driver):
-    """Search by Build, then validate each result has valid name (contains letters) and price (digits and . only)."""
+    """Steps:
+    1. Search for Build.
+    2. For each search result, assert product name contains letters and price is valid (digits and decimal only).
+    """
     assert driver is not None, "Driver fixture should be available."
     home = HomePage(driver)
     home.search_build()

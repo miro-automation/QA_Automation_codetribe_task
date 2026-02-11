@@ -11,7 +11,12 @@ pytestmark = [pytest.mark.pa, pytest.mark.ui, pytest.mark.login, pytest.mark.ord
 
 
 def test_logout(driver):
-    """Login with saved credentials, then click Log out; assert Log out disappears and Log in is visible."""
+    """Steps:
+    1. Load saved credentials; login.
+    2. Assert Log out link is visible (user is logged in).
+    3. Click Log out.
+    4. Assert Log out is not visible and Log in link is visible again.
+    """
     assert driver is not None, "Driver fixture should be available."
     try:
         creds = load_registered_user()

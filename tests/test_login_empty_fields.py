@@ -10,7 +10,11 @@ pytestmark = [pytest.mark.pa, pytest.mark.ui, pytest.mark.login, pytest.mark.ord
 
 
 def test_login_empty_fields(driver):
-    """Submit login with empty email and password; assert user is not logged in."""
+    """Steps:
+    1. Open login page; leave email and password empty.
+    2. Click Login.
+    3. Assert Log out link is not visible (user not logged in).
+    """
     assert driver is not None, "Driver fixture should be available."
     page = LoginPage(driver)
     page.open_login_page()

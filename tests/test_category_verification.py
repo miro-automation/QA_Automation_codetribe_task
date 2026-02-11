@@ -12,7 +12,12 @@ pytestmark = [pytest.mark.order(3)]
 @pytest.mark.ui
 @pytest.mark.category_verification
 def test_category_verification(driver):
-    """Navigate to Apparel & Shoes; verify products and pager on page 1; go to page 2; verify products there."""
+    """Steps:
+    1. Navigate to Apparel & Shoes category.
+    2. Assert products are displayed and pager (Next) is present on page 1.
+    3. Go to page 2.
+    4. Assert products are displayed and current page is 2.
+    """
     assert driver is not None, "Driver fixture should be available."
     category = CategoryPage(driver)
     category.open_apparel_shoes()

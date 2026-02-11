@@ -10,7 +10,11 @@ pytestmark = [pytest.mark.pa, pytest.mark.ui, pytest.mark.login, pytest.mark.ord
 
 
 def test_login_invalid_email(driver):
-    """Login with invalid email; assert Log out is not visible (login failed)."""
+    """Steps:
+    1. Enter invalid/non-existent email and any password.
+    2. Click Login.
+    3. Assert Log out link is not visible (login failed).
+    """
     assert driver is not None, "Driver fixture should be available."
     page = LoginPage(driver)
     page.login_with("nonexistent@invalid.example", "SomePass123!")

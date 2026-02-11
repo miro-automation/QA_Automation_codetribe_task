@@ -14,7 +14,10 @@ pytestmark = [pytest.mark.order(3)]
 @pytest.mark.ui
 @pytest.mark.smoke
 def test_pa_search_box_visible(driver):
-    """Search field is visible."""
+    """Steps:
+    1. Open home page.
+    2. Assert search field is visible.
+    """
     assert driver is not None, "Driver fixture should be available."
     home = HomePage(driver)
     assert home.is_search_visible(), "Search field (Products.search_button) should be visible on home page."
@@ -24,7 +27,11 @@ def test_pa_search_box_visible(driver):
 @pytest.mark.ui
 @pytest.mark.search
 def test_pa_search_product_key_word(driver):
-    """Search by Build (static data), verify results contain keyword, write product names to list file."""
+    """Steps:
+    1. Open home page; search for keyword (Build).
+    2. Assert all search results contain the keyword.
+    3. Write product names to list file.
+    """
     assert driver is not None, "Driver fixture should be available."
     home = HomePage(driver)
     home.search_build()

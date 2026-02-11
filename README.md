@@ -19,12 +19,15 @@ QA_Automation_codetribe_task/
 │   ├── home_page.py
 │   ├── search_results_page.py
 │   └── product_details_page.py
-├── tests/                     # Tests (test_pa_*)
+├── tests/                     # Tests (test_pa_*, @pytest.mark.pa)
 │   ├── __init__.py
-│   └── test_home_and_search.py
+│   ├── test_home_and_search.py
+│   └── test_validate_product_name_and_price.py
 ├── test_plan/                # Test plan documents
 │   └── Test_Plan.md
+├── reports/                  # pytest-html report (generated; in .gitignore)
 ├── conftest.py
+├── pytest.ini
 ├── requirements.txt
 ├── .gitignore
 └── README.md
@@ -43,14 +46,40 @@ In `locators/locators.json` you define all elements. Format:
 `by` can be: `id`, `css`, `xpath`, `name`, `class`, `tag`, `link_text`, `partial_link_text`.  
 In code you use: `self.actions.click("section_name", "element_key")`.
 
-## Running (CMD)
+## Install and run (tests + HTML report)
 
+From the project folder:
+
+**1. Install (only Python – no Node.js, no extra tools)**
 ```cmd
-cd c:\Users\Miro\Desktop\QA_Automation_codetribe_task
 python -m venv venv
 venv\Scripts\activate.bat
 pip install -r requirements.txt
+```
+
+**2. Run tests** (HTML report is saved to `reports/report.html` and opens in the browser when tests finish)
+```cmd
+pytest tests\ -v -m pa
+```
+
+**3. Open report manually** (if it didn’t open automatically)  
+Open the file `reports/report.html` in your browser (double-click or drag into Chrome/Edge).
+
+Each run overwrites `reports/report.html`, so you always see the latest results.
+
+---
+
+## Running (quick reference)
+
+```cmd
+cd c:\Users\Miro\Desktop\QA_Automation_codetribe_task
+venv\Scripts\activate.bat
 pytest tests\ -v
+```
+
+Run only tests with marker `pa`:
+```cmd
+pytest tests\ -v -m pa
 ```
 
 ## Connecting to Git

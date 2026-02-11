@@ -19,6 +19,9 @@ htmlcov/
 # HTML report (pytest-html)
 reports/
 
+# Generated at runtime (do not commit)
+output/last_registered_user.json
+
 # IDE
 .idea/
 .vscode/

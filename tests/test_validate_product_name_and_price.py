@@ -7,6 +7,8 @@ import pytest
 from pages.home_page import HomePage
 from pages.search_results_page import SearchResultsPage
 
+pytestmark = [pytest.mark.order(3)]
+
 
 @pytest.mark.pa
 @pytest.mark.ui

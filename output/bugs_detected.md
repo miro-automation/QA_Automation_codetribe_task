@@ -8,3 +8,17 @@
 - **Summary:** Application showed 'internal error' page (errorpage.htm) instead of validation message on register form.
 - **URL:** https://demowebshop.tricentis.com/errorpage.htm?aspxerrorpath=/register
 - **Scenario:** First name contained forbidden characters (e.g. script tag); expected client-side validation.
+
+---
+## Bug – 2026-02-11 21:26:57
+- **Test:** `test_register_forbidden_characters`
+- **Summary:** Application showed 'internal error' page (errorpage.htm) instead of validation message on register form.
+- **URL:** https://demowebshop.tricentis.com/errorpage.htm?aspxerrorpath=/register
+- **Scenario:** First name contained forbidden characters (e.g. script tag); expected client-side validation.
+
+---
+## Bug – 2026-02-11 21:39:51
+- **Test:** `test_register_forbidden_characters`
+- **Summary:** Application showed 'internal error' page (errorpage.htm) instead of validation message on register form.
+- **URL:** https://demowebshop.tricentis.com/errorpage.htm?aspxerrorpath=/register
+- **Scenario:** First name contained forbidden characters (e.g. script tag); expected client-side validation.

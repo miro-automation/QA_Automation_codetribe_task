@@ -1,5 +1,24 @@
 # QA Automation – Demo Web Shop
 
+---
+
+## Kako pokrenuti testove (najbitnije)
+
+1. **Preuzmi projekat** (npr. `git clone <repo-url>`) i otvori folder u VS Code ili uđi u njega u CMD/PowerShell.
+
+2. **Kreiraj i aktiviraj virtualno okruženje** (jednom):
+   - **CMD:** `python -m venv venv` pa `venv\Scripts\activate.bat`
+   - **PowerShell:** `python -m venv venv` pa `.\venv\Scripts\Activate.ps1`
+   - Zatim: `pip install -r requirements.txt`
+
+3. **Pokretanje testova** – u **Terminalu** (VS Code: Terminal → New Terminal) ili u **CMD/PowerShell** (u folderu projekta, sa aktiviranim venv-om):
+   ```bash
+   pytest tests/ -v
+   ```
+   Izvještaj: `reports/report.html` (otvara se u browseru nakon runa).
+
+---
+
 OOP automation framework for [Demo Web Shop](https://demowebshop.tricentis.com/): Python 3.11, pytest, Selenium. Locators in JSON; all UI methods in one module (`core/base_actions.py`); tests only call methods.
 
 ## Project structure

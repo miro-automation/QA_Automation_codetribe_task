@@ -7,6 +7,8 @@ import pytest
 from core.bug_reporter import record_bug
 from pages.register_page import RegisterPage, load_register_data
 
+pytestmark = [pytest.mark.order(1)]
+
 
 @pytest.mark.pa
 @pytest.mark.ui

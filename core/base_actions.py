@@ -99,8 +99,10 @@ class BaseActions:
         return element.get_attribute(attribute) or ""
 
     def is_displayed(self, section: str, key: str, timeout: int = IMPLICIT_WAIT) -> bool:
-        """Check if element is displayed."""
+        """Check if element is displayed. When timeout is short, set implicit_wait to 0 so polls don't wait 10s each."""
         by, value = self._get_locator(section, key)
+        if timeout < IMPLICIT_WAIT:
+            self.driver.implicitly_wait(0)
         try:
             element = WebDriverWait(self.driver, timeout).until(
                 EC.visibility_of_element_located((by, value))
@@ -108,6 +110,9 @@ class BaseActions:
             return element.is_displayed()
         except Exception:
             return False
+        finally:
+            if timeout < IMPLICIT_WAIT:
+                self.driver.implicitly_wait(IMPLICIT_WAIT)
 
     def wait_visible(self, section: str, key: str, timeout: int = IMPLICIT_WAIT) -> WebElement:
         """Wait until element is visible; return the element."""

@@ -4,6 +4,8 @@
 
 ## How to run the tests
 
+**Requires:** Python 3.11+ and Chrome (browser).
+
 1. **Get the project:** `git clone <repo-url>`, then open the folder in VS Code or go into it in CMD/PowerShell.
 
 2. **Create and activate a virtual environment** (once):

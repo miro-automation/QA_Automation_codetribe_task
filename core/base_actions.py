@@ -4,9 +4,12 @@ All element interactions go through this class; locators come from JSON.
 """
 from pathlib import Path
 import json
+import logging
 from typing import List, Tuple
 
 from selenium.webdriver.remote.webdriver import WebDriver
+
+logger = logging.getLogger(__name__)
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -65,6 +68,7 @@ class BaseActions:
         element = WebDriverWait(self.driver, timeout).until(
             EC.element_to_be_clickable((by, value))
         )
+        logger.info("Clicked on element: section=%s, key=%s (by=%s, value=%s)", section, key, by, value)
         element.click()
 
     def send_keys(self, section: str, key: str, text: str, clear_first: bool = True) -> None:
@@ -75,6 +79,7 @@ class BaseActions:
         )
         if clear_first:
             element.clear()
+        logger.info("Sent keys to element: section=%s, key=%s (length=%s)", section, key, len(text or ""))
         element.send_keys(text)
 
     def get_text(self, section: str, key: str, timeout: int = IMPLICIT_WAIT) -> str:

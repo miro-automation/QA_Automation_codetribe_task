@@ -12,7 +12,12 @@ pytestmark = [pytest.mark.order(1)]
 @pytest.mark.ui
 @pytest.mark.register
 def test_register_invalid_email(driver):
-    """Fill valid names and passwords but invalid email; assert Wrong email message."""
+    """Steps:
+    1. Open register page; select gender; fill valid first name, last name, password, confirm password.
+    2. Fill email with invalid format (e.g. notanemail).
+    3. Click Register.
+    4. Assert validation message contains 'Wrong email'.
+    """
     assert driver is not None, "Driver fixture should be available."
     data = load_register_data()
     valid = data["valid"]

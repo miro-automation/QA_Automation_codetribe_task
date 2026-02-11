@@ -12,7 +12,13 @@ pytestmark = [pytest.mark.order(3)]
 @pytest.mark.ui
 @pytest.mark.pagination
 def test_pagination_flow(driver):
-    """Apparel & Shoes: verify page 1 -> Next -> verify page 2 -> Previous -> page 1 -> go to 2 -> go to 1; assert elements at each step."""
+    """Steps:
+    1. Open Apparel & Shoes; assert page 1, products, pager, Next visible.
+    2. Click Next; assert page 2, Previous visible, products displayed.
+    3. Click Previous; assert page 1, products displayed.
+    4. Go to page 2 via page number link; assert page 2.
+    5. Go to page 1 via page number link; assert page 1.
+    """
     assert driver is not None, "Driver fixture should be available."
     category = CategoryPage(driver)
     category.open_apparel_shoes()

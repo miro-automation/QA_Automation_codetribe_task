@@ -11,7 +11,11 @@ pytestmark = [pytest.mark.pa, pytest.mark.ui, pytest.mark.login, pytest.mark.ord
 
 
 def test_login_success(driver):
-    """Use saved registered user credentials; login; assert header shows email and Log out link (user on home)."""
+    """Steps:
+    1. Load saved credentials from last successful registration.
+    2. Open login and submit email and password.
+    3. Assert Log out link is visible and header shows user email (user is on home).
+    """
     assert driver is not None, "Driver fixture should be available."
     try:
         creds = load_registered_user()

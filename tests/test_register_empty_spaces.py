@@ -12,7 +12,12 @@ pytestmark = [pytest.mark.order(1)]
 @pytest.mark.ui
 @pytest.mark.register
 def test_register_empty_spaces(driver):
-    """Fill form with only spaces; submit; assert required validation messages."""
+    """Steps:
+    1. Open register page.
+    2. Fill all fields with spaces only.
+    3. Click Register.
+    4. Assert required-field validation messages for all fields.
+    """
     assert driver is not None, "Driver fixture should be available."
     data = load_register_data()
     spaces = data.get("empty_spaces", "   ")

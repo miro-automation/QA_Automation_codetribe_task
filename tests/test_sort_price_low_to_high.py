@@ -12,7 +12,11 @@ pytestmark = [pytest.mark.order(3)]
 @pytest.mark.ui
 @pytest.mark.sorting
 def test_sort_price_low_to_high(driver):
-    """Open Apparel & Shoes, select Price: Low to High, verify sorting on page 1 and page 2."""
+    """Steps:
+    1. Open Apparel & Shoes; select sort 'Price: Low to High'.
+    2. Assert products on page 1 are sorted by price ascending.
+    3. Go to page 2; assert products on page 2 are sorted by price ascending.
+    """
     assert driver is not None, "Driver fixture should be available."
     category = CategoryPage(driver)
     category.open_apparel_shoes()

@@ -12,7 +12,11 @@ pytestmark = [pytest.mark.order(3)]
 @pytest.mark.ui
 @pytest.mark.sorting
 def test_sort_name_z_to_a(driver):
-    """Open Apparel & Shoes, select Name: Z to A, verify sorting on page 1 and page 2."""
+    """Steps:
+    1. Open Apparel & Shoes; select sort 'Name: Z to A'.
+    2. Assert products on page 1 are sorted Z to A.
+    3. Go to page 2; assert products on page 2 are sorted Z to A.
+    """
     assert driver is not None, "Driver fixture should be available."
     category = CategoryPage(driver)
     category.open_apparel_shoes()

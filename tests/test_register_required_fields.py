@@ -12,7 +12,11 @@ pytestmark = [pytest.mark.order(1)]
 @pytest.mark.ui
 @pytest.mark.register
 def test_register_required_fields(driver):
-    """Submit register form with all fields empty; assert required validation messages."""
+    """Steps:
+    1. Open register page.
+    2. Click Register without filling any field.
+    3. Assert validation messages for First name, Last name, Email, Password, Confirm password.
+    """
     assert driver is not None, "Driver fixture should be available."
     page = RegisterPage(driver)
     page.open_register()

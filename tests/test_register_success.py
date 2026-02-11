@@ -17,7 +17,12 @@ pytestmark = [pytest.mark.order(1)]
 @pytest.mark.ui
 @pytest.mark.register
 def test_register_success(driver):
-    """Fill form with valid data (unique email per run); submit; assert 'Your registration completed'; save credentials for login."""
+    """Steps:
+    1. Open register page; select gender; fill all fields with valid data (unique email per run).
+    2. Click Register.
+    3. Assert 'Your registration completed' message is displayed.
+    4. Save email and password to output for login tests.
+    """
     assert driver is not None, "Driver fixture should be available."
     data = load_register_data()
     valid = data["valid"]

@@ -14,7 +14,12 @@ pytestmark = [pytest.mark.order(1)]
 @pytest.mark.ui
 @pytest.mark.register
 def test_register_forbidden_characters(driver):
-    """Fill first name with forbidden characters. Fail if app shows internal error page; expect validation message."""
+    """Steps:
+    1. Open register page; fill first name with forbidden characters (e.g. script tag); fill other fields with valid data.
+    2. Click Register.
+    3. If application shows internal error page: record bug and fail test.
+    4. Assert registration did not succeed and validation message appears for first name.
+    """
     assert driver is not None, "Driver fixture should be available."
     data = load_register_data()
     valid = data["valid"]

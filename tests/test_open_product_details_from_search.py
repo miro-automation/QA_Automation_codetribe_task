@@ -16,7 +16,11 @@ pytestmark = [pytest.mark.order(3)]
 @pytest.mark.search
 @pytest.mark.product_validation
 def test_open_product_details_from_search(driver):
-    """Search by Build; assert first result has Add to cart; open first product in current tab; verify title, price, Add to cart on details page."""
+    """Steps:
+    1. Search for Build; assert first result has Add to cart button.
+    2. Open first product in current tab.
+    3. Assert product details page has non-empty title (h1), valid price, and Add to cart visible.
+    """
     assert driver is not None, "Driver fixture should be available."
     home = HomePage(driver)
     home.search_build()

@@ -21,6 +21,7 @@
     "previous_page_link": {"by": "css", "value": "div.pager li.previous-page a"},
     "current_page": {"by": "css", "value": "div.pager li.current-page"},
     "page_2_link": {"by": "css", "value": "div.pager li.individual-page a[href*='pagenumber=2']"},
-    "page_1_link": {"by": "css", "value": "div.pager li.individual-page a[href='/apparel-shoes']"}
+    "page_1_link": {"by": "css", "value": "div.pager li.individual-page a[href='/apparel-shoes']"},
+    "sort_dropdown": {"by": "id", "value": "products-orderby"}
   }
 }

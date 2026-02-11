@@ -8,5 +8,29 @@
       "by": "css",
       "value": "div.search-box input[type=submit]"
     }
+  },
+  "search_results": {
+    "first_item_add_to_cart": {
+      "by": "css",
+      "value": "div.product-grid div.item-box input[value='Add to cart']"
+    },
+    "first_product_title_link": {
+      "by": "css",
+      "value": "div.product-grid div.item-box .product-item .details h2 a"
+    }
+  },
+  "product_details": {
+    "product_title": {
+      "by": "css",
+      "value": "div.product-name h1"
+    },
+    "product_price": {
+      "by": "css",
+      "value": "div.product-price span[itemprop='price']"
+    },
+    "add_to_cart_button": {
+      "by": "css",
+      "value": "input[value='Add to cart']"
+    }
   }
 }

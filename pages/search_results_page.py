@@ -9,7 +9,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 from config.data_loader import get_value
-from config.settings import IMPLICIT_WAIT
+from config.settings import BASE_URL, IMPLICIT_WAIT
 from pages.base_page import BasePage
 
 # Output folder for generated lists (e.g. product names)
@@ -150,3 +150,28 @@ class SearchResultsPage(BasePage):
             return None
         except Exception as e:
             return str(e)
+
+    def verify_first_item_has_add_to_cart(self) -> Optional[str]:
+        """Verify that the first search result item has a visible 'Add to cart' button. Returns None if ok, else error message."""
+        try:
+            WebDriverWait(self.driver, IMPLICIT_WAIT).until(
+                EC.presence_of_element_located((By.CSS_SELECTOR, "div.product-grid div.item-box input[value='Add to cart']"))
+            )
+            btn = self.driver.find_element(By.CSS_SELECTOR, "div.product-grid div.item-box input[value='Add to cart']")
+            if not btn.is_displayed():
+                return "First item 'Add to cart' button is not visible."
+            return None
+        except Exception as e:
+            return f"First item has no 'Add to cart' button or not found: {e}"
+
+    def open_first_product_in_current_tab(self) -> None:
+        """Open the first product's details in the current tab (via href to avoid new window)."""
+        link = WebDriverWait(self.driver, IMPLICIT_WAIT).until(
+            EC.presence_of_element_located((By.CSS_SELECTOR, "div.product-grid div.item-box .product-item .details h2 a"))
+        )
+        href = link.get_attribute("href") or ""
+        if not href:
+            raise ValueError("First product link has no href.")
+        base = BASE_URL.rstrip("/")
+        full_url = href if href.startswith("http") else (base + "/" + href.lstrip("/"))
+        self.driver.get(full_url)

@@ -45,6 +45,8 @@ def pytest_configure(config):
     config.addinivalue_line("markers", "smoke: smoke / sanity tests.")
     config.addinivalue_line("markers", "search: search functionality tests.")
     config.addinivalue_line("markers", "product_validation: product name and price validation.")
+    config.addinivalue_line("markers", "category_verification: category and product grid verification.")
+    config.addinivalue_line("markers", "pagination: pagination flow tests.")
 
 
 @pytest.fixture(scope="function")

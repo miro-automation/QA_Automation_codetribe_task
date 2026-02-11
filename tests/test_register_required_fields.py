@@ -5,6 +5,8 @@ import pytest
 
 from pages.register_page import RegisterPage
 
+pytestmark = [pytest.mark.order(1)]
+
 
 @pytest.mark.pa
 @pytest.mark.ui

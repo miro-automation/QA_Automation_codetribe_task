@@ -5,6 +5,8 @@ import pytest
 
 from pages.category_page import CategoryPage
 
+pytestmark = [pytest.mark.order(3)]
+
 
 @pytest.mark.pa
 @pytest.mark.ui

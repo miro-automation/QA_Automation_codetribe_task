@@ -1,5 +1,24 @@
 # QA Automation – Demo Web Shop
 
+---
+
+## How to run the tests
+
+1. **Get the project:** `git clone <repo-url>`, then open the folder in VS Code or go into it in CMD/PowerShell.
+
+2. **Create and activate a virtual environment** (once):
+   - **Windows CMD:** `python -m venv venv` then `venv\Scripts\activate.bat`
+   - **Windows PowerShell:** `python -m venv venv` then `.\venv\Scripts\Activate.ps1`
+   - Then: `pip install -r requirements.txt`
+
+3. **Run tests** — in the project folder, with the venv activated, run:
+   ```bash
+   pytest tests/ -v
+   ```
+   Report: `reports/report.html` (opens in the browser after the run).
+
+---
+
 OOP automation framework for [Demo Web Shop](https://demowebshop.tricentis.com/): Python 3.11, pytest, Selenium. Locators in JSON; all UI methods in one module (`core/base_actions.py`); tests only call methods.
 
 ## Project structure
@@ -46,40 +65,29 @@ In `locators/locators.json` you define all elements. Format:
 `by` can be: `id`, `css`, `xpath`, `name`, `class`, `tag`, `link_text`, `partial_link_text`.  
 In code you use: `self.actions.click("section_name", "element_key")`.
 
-## Install and run (tests + HTML report)
+## Install and run (reference)
 
 From the project folder:
 
-**1. Install (only Python – no Node.js, no extra tools)**
+**1. Install (Python only – no Node.js)**
 ```cmd
 python -m venv venv
 venv\Scripts\activate.bat
 pip install -r requirements.txt
 ```
 
-**2. Run tests** (HTML report is saved to `reports/report.html` and opens in the browser when tests finish)
+**2. Run all tests**
 ```cmd
-pytest tests\ -v -m pa
+pytest tests/ -v
 ```
 
-**3. Open report manually** (if it didn’t open automatically)  
-Open the file `reports/report.html` in your browser (double-click or drag into Chrome/Edge).
+**3. Open report**  
+Open `reports/report.html` in your browser (opens automatically when tests finish, or open the file manually).
 
-Each run overwrites `reports/report.html`, so you always see the latest results.
-
----
-
-## Running (quick reference)
+## Optional: run by marker
 
 ```cmd
-cd c:\Users\Miro\Desktop\QA_Automation_codetribe_task
-venv\Scripts\activate.bat
-pytest tests\ -v
-```
-
-Run only tests with marker `pa`:
-```cmd
-pytest tests\ -v -m pa
+pytest tests/ -v -m pa
 ```
 
 ## Connecting to Git

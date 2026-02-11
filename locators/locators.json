@@ -38,5 +38,13 @@
     "validation_email": {"by": "css", "value": "span[data-valmsg-for='Email']"},
     "validation_password": {"by": "css", "value": "span[data-valmsg-for='Password']"},
     "validation_confirm_password": {"by": "css", "value": "span[data-valmsg-for='ConfirmPassword']"}
+  },
+  "login": {
+    "login_link": {"by": "css", "value": "a.ico-login"},
+    "email": {"by": "id", "value": "Email"},
+    "password": {"by": "id", "value": "Password"},
+    "login_button": {"by": "css", "value": "input.button-1.login-button"},
+    "logout_link": {"by": "css", "value": "a.ico-logout"},
+    "header_account_link": {"by": "css", "value": "a.ico-account"}
   }
 }

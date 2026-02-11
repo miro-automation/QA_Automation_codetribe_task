@@ -3,6 +3,8 @@ Pytest hooks and fixtures. Driver for tests.
 """
 import logging
 import time
+import webbrowser
+from pathlib import Path
 
 import pytest
 from selenium import webdriver
@@ -20,6 +22,20 @@ logging.basicConfig(
     format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
     datefmt="%H:%M:%S",
 )
+
+
+def pytest_sessionfinish(session, exitstatus):
+    """After all tests: wait for pytest-html to write report, then open it in browser."""
+    report_path = Path(session.config.rootdir) / "reports" / "report.html"
+    time.sleep(2.5)  # Give pytest-html time to write the file
+    if report_path.is_file():
+        try:
+            webbrowser.open(report_path.as_uri())
+            _log.info("Opening HTML report in browser...")
+        except Exception as e:
+            _log.warning("Could not open report: %s. Open manually: reports/report.html", e)
+    else:
+        _log.warning("Report not found at %s. Open manually: reports/report.html", report_path)
 
 
 def pytest_configure(config):

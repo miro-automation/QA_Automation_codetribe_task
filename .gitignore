@@ -16,6 +16,9 @@ __pycache__/
 .coverage
 htmlcov/
 
+# HTML report (pytest-html)
+reports/
+
 # IDE
 .idea/
 .vscode/
